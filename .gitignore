@@ -1,2 +1,3 @@
-crypto-config/ordererOrganizations
-crypto-config/peerOrganizations
+organizations/
+
+.env

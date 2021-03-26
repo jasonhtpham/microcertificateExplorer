@@ -9,7 +9,7 @@ networks:
 
 services:
   explorerdb.mynetwork.com:
-    image: hyperledger/explorer-db:latest
+    image: hyperledger/explorer-db:1.1.0
     container_name: explorerdb.mynetwork.com
     hostname: explorerdb.mynetwork.com
     environment:
@@ -27,7 +27,7 @@ services:
       - test
 
   explorer.mynetwork.com:
-    image: hyperledger/explorer:1.1.1
+    image: hyperledger/explorer:1.1.0
     container_name: explorer.mynetwork.com
     hostname: explorer.mynetwork.com
     environment:
@@ -44,8 +44,8 @@ services:
       - ./config.json:/opt/explorer/app/platform/fabric/config.json
       - ./connection-profile:/opt/explorer/app/platform/fabric/connection-profile
       - ./examples/net1/crypto:/tmp/crypto
-      - walletstore:/opt/wallet
-      - ./crypto-config/:/etc/data
+      - walletstore:/opt/explorer/wallet
+      - ./organizations:/etc/data
     command: sh -c "node /opt/explorer/main.js && tail -f /dev/null"
     ports:
       - 8080:8080
